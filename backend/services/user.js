@@ -5,6 +5,7 @@ const createUser = (username, email, password) => {
     username: username,
     email: email,
     password: password,
+    cart: [],
   });
 };
 

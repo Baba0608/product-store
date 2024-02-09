@@ -13,6 +13,19 @@ const userSchema = mongoose.Schema({
     type: String,
     require: true,
   },
+
+  cart: [
+    {
+      productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        require: true,
+      },
+      quantity: {
+        type: Number,
+        require: true,
+      },
+    },
+  ],
 });
 
 const User = mongoose.model("user", userSchema);

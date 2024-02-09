@@ -1,10 +1,7 @@
 const bcrypt = require("bcrypt");
-const JWT = require("jsonwebtoken");
 
 const UserServices = require("../services/user");
-
-const generateToken = (id, name) =>
-  JWT.sign({ id, name }, process.env.JWT_SECRET_KEY);
+const generateToken = require("../utils/generate-jwt");
 
 const signup = async (req, res, next) => {
   try {

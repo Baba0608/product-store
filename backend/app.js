@@ -12,11 +12,12 @@ app.use(cors());
 const userRoutes = require("./routes/user");
 const productRoutes = require("./routes/product");
 const cartRoutes = require("./routes/cart");
-
+const adminRoutes = require("./routes/admin");
 //
 app.use("/user", userRoutes);
 app.use("/product", productRoutes);
 app.use("/cart", cartRoutes);
+app.use("/admin", adminRoutes);
 
 // listen to server
 const PORT = process.env.PORT || 4000;

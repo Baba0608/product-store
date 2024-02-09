@@ -14,7 +14,7 @@ const userAuthentication = async (req, res, next) => {
         throw new Error("Something went wrong.");
       }
 
-      const user = await Users.findOne({ _id: userObj.id });
+      const user = await Users.findOne({ _id: userObj.id }).select("email");
 
       if (user) {
         req.user = user;

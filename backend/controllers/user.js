@@ -38,6 +38,7 @@ const login = async (req, res, next) => {
     const { email, password } = req.body;
 
     const user = await UserServices.findUser(email);
+
     if (!user) {
       return res
         .status(404)
@@ -50,13 +51,11 @@ const login = async (req, res, next) => {
       }
 
       if (result) {
-        return res
-          .status(200)
-          .json({
-            success: true,
-            message: "User logged in succesfully.",
-            token: generateToken(user._id, user.username),
-          });
+        return res.status(200).json({
+          success: true,
+          message: "User logged in succesfully.",
+          token: generateToken(user._id, user.username),
+        });
       } else {
         return res
           .status(401)
@@ -71,5 +70,18 @@ const login = async (req, res, next) => {
   }
 };
 
-exports.signup = signup;
-exports.login = login;
+const getDetails = async (req, res, next) => {
+  try {
+    const { _id: userId } = req.user;
+
+    const result = await UserServices.getDetails(userId);
+    return res.status(200).json({ success: true, result });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .json({ success: false, message: "Something went wrong." });
+  }
+};
+
+module.exports = { signup, login, getDetails };

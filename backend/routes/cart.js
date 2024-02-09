@@ -13,4 +13,6 @@ router.delete(
   cartController.deleteFromCart
 );
 
+router.get("/get-products", authorization, cartController.getCartProducts);
+
 module.exports = router;

@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button } from "./Button";
 
+import { toastNotify } from "../utils/toast-notify";
+
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 export const Signup = () => {
@@ -32,14 +34,21 @@ export const Signup = () => {
         // notification -- password is not matching.
       } else {
         setLoading(true);
-        const result = await axios.post(`${BACKEND_API}/user/signup`, {
-          username: username,
-          email: email,
-          password: password,
-        });
-        setLoading(false);
-        console.log(result);
-        routeChange();
+        try {
+          const result = await axios.post(`${BACKEND_API}/user/signup`, {
+            username: username,
+            email: email,
+            password: password,
+          });
+          setLoading(false);
+          console.log(result);
+          // toast - Notification
+          toastNotify("Signup successfull!");
+
+          routeChange();
+        } catch (err) {
+          console.log(err);
+        }
       }
     } else {
       // notification -- Please enter all fields.
@@ -103,10 +112,6 @@ export const Signup = () => {
           </div>
 
           <div className="btn">
-            {/* <button type="submit" id="submit-btn" onClick={submitFormData}>
-              Signup
-            </button> */}
-
             <Button
               loading={loading}
               id={"submit-btn"}

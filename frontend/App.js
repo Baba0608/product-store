@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Login } from "./src/components/Login";
 import { Signup } from "./src/components/Signup";
@@ -14,6 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const AppLayout = () => {
   return (
     <div>
+      <ToastContainer />
       <Outlet />
     </div>
   );

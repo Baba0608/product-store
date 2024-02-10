@@ -1,7 +1,9 @@
+import { Header } from "./Header";
+
 export const Cart = () => {
   return (
     <div>
-      <p>This is Cart page</p>
+      <Header />
     </div>
   );
 };

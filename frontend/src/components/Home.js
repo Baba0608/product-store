@@ -1,7 +1,13 @@
+import { Header } from "./Header";
+
 export const Home = () => {
   return (
     <div>
-      <p>This is Home page</p>
+      <Header />
+
+      <div className="products-container">
+        <div>{/* Display all products */}</div>
+      </div>
     </div>
   );
 };

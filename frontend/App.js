@@ -1,14 +1,40 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+import { Login } from "./src/components/Login";
+import { Signup } from "./src/components/Signup";
+import { Home } from "./src/components/Home";
+import { Orders } from "./src/components/Orders";
+import { Cart } from "./src/components/Cart";
+import { Error } from "./src/components/Error";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const AppLayout = () => {
   return (
     <div>
-      <p>This is the main page. Created using React</p>
+      <Outlet />
     </div>
   );
 };
 
-root.render(<AppLayout />);
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/user/login",
+        element: <Login />,
+      },
+      {
+        path: "/user/signup",
+        element: <Signup />,
+      },
+    ],
+    errorElement: <Error />,
+  },
+]);
+
+root.render(<RouterProvider router={appRouter} />);

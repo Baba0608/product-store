@@ -5,7 +5,7 @@ import { Button } from "./Button";
 // import { routeChange } from "../utils/navigate";
 import { useNavigate } from "react-router-dom";
 
-import { toastNotify } from "../utils/toast-notify";
+import { toastNotifySuccess, toastNotifyError } from "../utils/toast-notify";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
@@ -45,11 +45,12 @@ export const Signup = () => {
           setLoading(false);
           console.log(result);
           // toast - Notification
-          toastNotify("Signup successfull!");
+          toastNotifySuccess("Signup successfull!");
 
           routeChange();
         } catch (err) {
           console.log(err);
+          toastNotifyError("Something went wrong.");
         }
       }
     } else {

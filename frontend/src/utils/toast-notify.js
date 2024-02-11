@@ -11,6 +11,10 @@ const notificationStyles = {
   theme: "light",
 };
 
-export function toastNotify(message) {
-  toast(message, notificationStyles);
+export function toastNotifySuccess(message) {
+  toast.success(message, notificationStyles);
+}
+
+export function toastNotifyError(message) {
+  toast.error(message, notificationStyles);
 }

@@ -10,6 +10,7 @@ import { Home } from "./src/components/Home";
 import { Orders } from "./src/components/Orders";
 import { Cart } from "./src/components/Cart";
 import { Error } from "./src/components/Error";
+import { Product } from "./src/components/Product";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -42,6 +43,14 @@ const appRouter = createBrowserRouter([
       {
         path: "/user/cart",
         element: <Cart />,
+      },
+      {
+        path: "/user/orders",
+        element: <Orders />,
+      },
+      {
+        path: "/user/product/:productId",
+        element: <Product />,
       },
     ],
     errorElement: <Error />,

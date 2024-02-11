@@ -1,7 +1,6 @@
 const uploadToS3 = require("../utils/uploadToS3");
 
 const ProductServices = require("../services/product");
-const { get } = require("mongoose");
 
 const addProduct = async (req, res, next) => {
   try {
@@ -87,7 +86,22 @@ const deleteProduct = async (req, res, next) => {
   }
 };
 
+const getSingleProduct = async (req, res, next) => {
+  try {
+    const productId = req.params.productId;
+
+    const result = await ProductServices.getSingleProduct(productId);
+    return res.status(200).json({ success: true, result });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .json({ success: false, message: "Something went wrong." });
+  }
+};
+
 exports.addProduct = addProduct;
 exports.getAllProducts = getAllProducts;
 exports.updateProductDetails = updateProductDetails;
 exports.deleteProduct = deleteProduct;
+exports.getSingleProduct = getSingleProduct;

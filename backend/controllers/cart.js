@@ -2,13 +2,12 @@ const CartServices = require("../services/cart");
 
 const addToCart = async (req, res, next) => {
   try {
-    const { productId, quantity } = req.body;
+    const { productId } = req.body;
     const { _id: userId } = req.user;
 
     const productInCart = await CartServices.inCart(userId, productId);
-
     if (productInCart) {
-      await CartServices.incrementQuantity(userId, productId, quantity);
+      await CartServices.incrementQuantity(userId, productId, 1);
 
       return res.status(202).json({
         success: true,
@@ -16,7 +15,7 @@ const addToCart = async (req, res, next) => {
       });
     }
 
-    const product = await CartServices.addToCart(userId, productId, quantity);
+    const product = await CartServices.addToCart(userId, productId, 1);
 
     return res
       .status(202)

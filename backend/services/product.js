@@ -41,7 +41,12 @@ const deleteProduct = (productId) => {
   return Product.findByIdAndDelete({ _id: productId });
 };
 
+const getSingleProduct = (productId) => {
+  return Product.findById({ _id: productId });
+};
+
 exports.addProduct = addProduct;
 exports.getAllProducts = getAllProducts;
 exports.updateProductDetails = updateProductDetails;
 exports.deleteProduct = deleteProduct;
+exports.getSingleProduct = getSingleProduct;

@@ -8,6 +8,7 @@
 body{
     background-color: rgb(141, 183, 234);
     font-size: 20px;
+    
 }
 
 body label{
@@ -29,6 +30,7 @@ body button{
 body p{
     margin-bottom: 10px;
 }
+
 
 .signup-container , .login-container{
     display: flex;
@@ -87,8 +89,9 @@ body p{
 .header{
     display: flex;
     justify-content: space-between;
-    height: 10vh;
+    height: 73px;
     background-color: rgb(70, 70, 181);
+    
 }
 
 .nav-items , .title{
@@ -122,4 +125,196 @@ body p{
 
 .header ul li a:hover{
     color: rgb(244, 55, 55);
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------ */
+
+/* card */
+
+.products-container{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+}
+
+.card{
+    width: 350px;
+    background-color: rgb(224, 222, 222);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.product-image{
+    height: 300px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.product-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.product-image img:hover{
+    transform: scale(1.05);
+    transition: all ease-in-out 300ms;
+}
+
+.cart-btn{
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-to-cart{
+    padding: 5px 20px;
+    background-color: rgb(50, 139, 223);
+    border: none;
+    border-radius: 5px;
+    width: 48%;
+}
+
+.add-to-cart:hover{
+    background-color: rgb(83, 83, 205);
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+    color: white;
+}
+
+.view-product{
+    width: 48%;
+    padding: 5px 20px;
+    background-color: rgb(86, 178, 86);
+    border: none;
+    border-radius: 5px;
+}
+
+.view-product:hover{
+    background-color: rgb(42, 107, 42);
+    color: white;
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+}
+
+/* ------------------------------------------ */
+
+/* Cart-card */
+
+.cart-container{
+    margin: 20px 50px 0px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-card{
+    width: 100%;
+    background-color: rgb(224, 222, 222);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.cart-card-image{
+    height: 300px;
+    width: 20%;
+    border-radius: 10px;
+    overflow: hidden;
+    
+}
+
+.cart-card-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.cart-card-details{
+    width: 78%;
+}
+
+#remove-from-cart , #buy-product{
+    padding: 5px 20px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+#remove-from-cart{
+    background-color: rgb(226, 85, 85);
+    
+}
+
+#remove-from-cart:hover{
+    transition: all ease-in-out 250ms;
+    background-color: rgb(152, 35, 35);
+    color: rgb(220, 218, 218);
+}
+
+#buy-product{
+    background-color: rgb(102, 214, 102);
+}
+
+#buy-product:hover{
+    transition: all ease-in-out 250ms;
+    background-color: rgb(29, 142, 29);
+    color: rgb(220, 218, 218);
+}
+
+.quantity{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.quantity-value{
+    padding: 2px 0px;
+    width: 70px;
+    background-color: white;
+    text-align: center;
+}
+
+.decrease, .increase{
+    padding: 2px 7px;
+    border: none;
+    font-size: 20px;
+    background-color: rgb(239, 194, 134);
+    width: 30px;
+}
+
+.decrease:hover , .increase:hover{
+    background-color: rgb(236, 165, 79);
+    cursor: pointer;
+}
+
+
+/* ------------------------------------------- */
+
+/* Single product */
+
+.single-product{
+    margin: 20px 50px;
+    font-size: 25px;
+}
+
+.single-product-image{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+}
+
+.single-product span{
+    font-weight: bold;
+}
+
+.single-product-image img{
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
 }

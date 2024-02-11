@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 import { Button } from "./Button";
-import { toastNotify } from "../utils/toast-notify";
+import { toastNotifySuccess, toastNotifyError } from "../utils/toast-notify";
 import { useNavigate, Link } from "react-router-dom";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
@@ -31,10 +31,11 @@ export const Login = () => {
 
         localStorage.setItem("store-token", data.token);
         setLoading(false);
-        toastNotify("Successfully logged in");
+        toastNotifySuccess("Successfully logged in");
         routeChange();
       } catch (err) {
         console.log(err);
+        toastNotifyError("Something went wrong.");
       }
     } else {
       // please enter all fields

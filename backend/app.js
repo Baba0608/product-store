@@ -13,11 +13,13 @@ const userRoutes = require("./routes/user");
 const productRoutes = require("./routes/product");
 const cartRoutes = require("./routes/cart");
 const adminRoutes = require("./routes/admin");
+const orderRoutes = require("./routes/order");
 //
 app.use("/user", userRoutes);
 app.use("/product", productRoutes);
 app.use("/cart", cartRoutes);
 app.use("/admin", adminRoutes);
+app.use("/order", orderRoutes);
 
 // listen to server
 const PORT = process.env.PORT || 4000;

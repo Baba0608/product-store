@@ -318,3 +318,35 @@ body p{
     height: 400px;
     border-radius: 10px;
 }
+
+
+/* ------------------------------------------- */
+
+/* Orders-table */
+
+.orders-table{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.orders-table th{
+    min-width: 100px;
+    background-color: rgb(37, 151, 146);
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.orders-table td{
+    min-width: 100px;
+    background-color: cadetblue;
+    padding: 5px 15px;
+    text-align: center;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}

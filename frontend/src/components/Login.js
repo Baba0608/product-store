@@ -34,14 +34,18 @@ export const Login = () => {
         toastNotifySuccess("Successfully logged in");
         routeChange();
       } catch (err) {
-        console.log(err);
         setLoading(false);
         setEmail("");
         setPassword("");
-        toastNotifyError("Something went wrong.");
+
+        const statusCode = err.message.split(" ").reverse()[0];
+
+        if (statusCode === "401") toastNotifyError("Password is incorrect.");
+        if (statusCode === "500") toastNotifyError("Something went wrong.");
       }
     } else {
       // please enter all fields
+      toastNotifyError("Please enter all fields.");
     }
   };
   return (

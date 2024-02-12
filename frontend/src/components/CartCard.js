@@ -26,10 +26,11 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
         }
       );
       deleteFromCart(resObj.product._id);
-      if (!payment) toastNotifySuccess("Product removed from cart.");
+      if (payment != "payment")
+        toastNotifySuccess("Product removed from cart.");
     } catch (err) {
       console.log(err);
-      if (!payment) toastNotifyError("Something went wrong.");
+      if (payment != "payment") toastNotifyError("Something went wrong.");
     }
   };
 
@@ -65,7 +66,8 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
             }
           );
 
-          removeFromCart(true);
+          console.log(resObj.product._id);
+          removeFromCart("payment");
           toastNotifySuccess(
             "Payment Successfull. Your product will be delivered when I own the company."
           );

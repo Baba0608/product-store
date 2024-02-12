@@ -52,6 +52,18 @@ const appRouter = createBrowserRouter([
         path: "/user/product/:productId",
         element: <Product />,
       },
+      {
+        path: "/admin/login",
+        element: <Login />,
+      },
+      {
+        path: "/admin/signup",
+        element: <Signup />,
+      },
+      {
+        path: "/admin/home",
+        element: <Home />,
+      },
     ],
     errorElement: <Error />,
   },

@@ -40,7 +40,6 @@ export const Product = () => {
     fetchProduct();
   }, []);
 
-  console.log(product);
   if (!product) {
     return <Shimmer />;
   }

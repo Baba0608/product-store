@@ -35,6 +35,9 @@ export const Login = () => {
         routeChange();
       } catch (err) {
         console.log(err);
+        setLoading(false);
+        setEmail("");
+        setPassword("");
         toastNotifyError("Something went wrong.");
       }
     } else {
@@ -52,6 +55,7 @@ export const Login = () => {
               name="email"
               id="email"
               placeholder="Enter email..."
+              value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
@@ -65,6 +69,7 @@ export const Login = () => {
               name="password"
               id="password"
               placeholder="Enter password..."
+              value={password}
               onChange={(e) => {
                 setPassword(e.target.value);
               }}

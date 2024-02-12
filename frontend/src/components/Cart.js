@@ -24,7 +24,6 @@ export const Cart = () => {
         headers: { authorization: localStorage.getItem("store-token") },
       });
 
-      console.log(data);
       setCartList(data.products.cart);
     } catch (err) {
       console.log(err);

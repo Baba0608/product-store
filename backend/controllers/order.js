@@ -9,7 +9,7 @@ const createOrder = async (req, res, next) => {
     const { _id: userId } = req.user;
 
     const amount = products.reduce((acc, curr) => {
-      acc = curr.product.cost * curr.quantity * 100;
+      acc = curr.cost * curr.quantity * 100;
       return acc;
     }, 0);
 
@@ -25,7 +25,7 @@ const createOrder = async (req, res, next) => {
           .json({ success: "Something went wrong. Order not created." });
       }
 
-      const result = await OrderServices.createOrder(
+      const order = await OrderServices.createOrder(
         userId,
         result.id,
         products
@@ -34,8 +34,9 @@ const createOrder = async (req, res, next) => {
       return res.status(201).json({
         success: true,
         message: "Order created",
-        result,
+        order,
         key_id: rzp.key_id,
+        amount: amount,
       });
     });
   } catch (err) {

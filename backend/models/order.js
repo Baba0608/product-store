@@ -21,20 +21,7 @@ const orderSchema = mongoose.Schema({
     require: true,
   },
 
-  products: [
-    {
-      _id: false,
-      productId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "product",
-        require: true,
-      },
-      quantity: {
-        type: Number,
-        require: true,
-      },
-    },
-  ],
+  products: [],
 
   amount: {
     type: Number,

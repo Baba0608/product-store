@@ -4,7 +4,7 @@ const createOrder = (userId, orderId, products) => {
   return Order.create({
     orderId: orderId,
     userId: userId,
-    products,
+    products: products,
     paymentId: null,
     amount: null,
     paymentStatus: "PENDING",

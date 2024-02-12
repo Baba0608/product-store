@@ -22,7 +22,12 @@ const updatePaymentStatus = (orderId, paymentId, amount) => {
   );
 };
 
+const getAllOrders = (userId) => {
+  return Order.find({ userId: userId }).sort({ createdAt: -1 });
+};
+
 module.exports = {
   createOrder,
   updatePaymentStatus,
+  getAllOrders,
 };

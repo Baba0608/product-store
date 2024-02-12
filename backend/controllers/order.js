@@ -69,7 +69,22 @@ const updatePaymentStatus = async (req, res, next) => {
   }
 };
 
+const getAllOrders = async (req, res, next) => {
+  try {
+    const { _id: userId } = req.user;
+
+    const orders = await OrderServices.getAllOrders(userId);
+    return res.status(200).json({ success: true, orders });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .json({ success: false, message: "Something went wrong." });
+  }
+};
+
 module.exports = {
   createOrder,
   updatePaymentStatus,
+  getAllOrders,
 };

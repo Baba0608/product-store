@@ -13,4 +13,10 @@ router.post(
   orderControllers.updatePaymentStatus
 );
 
+router.get(
+  "/get-all-orders",
+  userAuthentication,
+  orderControllers.getAllOrders
+);
+
 module.exports = router;

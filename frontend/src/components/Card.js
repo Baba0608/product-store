@@ -2,6 +2,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 import { toastNotifySuccess, toastNotifyError } from "../utils/toast-notify";
+import { Button } from "./Button";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
@@ -42,13 +43,19 @@ export const Card = ({ resObj }) => {
       </div>
 
       <div className="cart-btn">
-        <button className="add-to-cart" onClick={addToCart}>
-          Add to Cart
-        </button>
+        <Button
+          className={"add-to-cart"}
+          id={"add-to-cart"}
+          functionOnClick={addToCart}
+          content={"Add to Cart"}
+        />
 
-        <button className="view-product" onClick={routeChange}>
-          View
-        </button>
+        <Button
+          className={"view-product"}
+          functionOnClick={routeChange}
+          id={"view-product"}
+          content={"View"}
+        />
       </div>
     </div>
   );

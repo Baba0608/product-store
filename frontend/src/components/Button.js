@@ -1,9 +1,15 @@
 import { ButtonLoading } from "./ButtonLoading";
 
-export const Button = ({ loading, id, content, submitFormData }) => {
+export const Button = ({
+  loading,
+  id,
+  content,
+  functionOnClick,
+  className,
+}) => {
   if (!loading) {
     return (
-      <button type="submit" id={id} onClick={submitFormData}>
+      <button id={id} className={className} onClick={functionOnClick}>
         {content}
       </button>
     );

@@ -11,6 +11,9 @@ import { Orders } from "./src/components/Orders";
 import { Cart } from "./src/components/Cart";
 import { Error } from "./src/components/Error";
 import { Product } from "./src/components/Product";
+import { AdminLogin } from "./src/components/AdminLogin";
+import { AdminHome } from "./src/components/AdminHome";
+import { AdminSignup } from "./src/components/adminSignup";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -54,15 +57,15 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/admin/login",
-        element: <Login />,
+        element: <AdminLogin />,
       },
       {
         path: "/admin/signup",
-        element: <Signup />,
+        element: <AdminSignup />,
       },
       {
         path: "/admin/home",
-        element: <Home />,
+        element: <AdminHome />,
       },
     ],
     errorElement: <Error />,

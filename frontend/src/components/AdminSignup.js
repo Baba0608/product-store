@@ -9,16 +9,17 @@ import { toastNotifySuccess, toastNotifyError } from "../utils/toast-notify";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
-export const Signup = () => {
+export const AdminSignup = () => {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [secretKey, setSecretKey] = useState("");
   const [password, setPassword] = useState("");
   const [conformPassword, setConformPassword] = useState("");
 
   let navigate = useNavigate();
   const routeChange = () => {
-    let path = "/user/login";
+    let path = "/admin/login";
     navigate(path);
   };
 
@@ -28,18 +29,21 @@ export const Signup = () => {
     if (
       username != "" &&
       email != "" &&
+      secretKey != "" &&
       password != "" &&
       conformPassword != ""
     ) {
       if (password != conformPassword) {
         // show error
         // notification -- password is not matching.
+        toastNotifyError("Password not matching.");
       } else {
         setLoading(true);
         try {
-          const result = await axios.post(`${BACKEND_API}/user/signup`, {
+          const result = await axios.post(`${BACKEND_API}/admin/admin-signup`, {
             username: username,
             email: email,
+            adminSecretKey: secretKey,
             password: password,
           });
           setLoading(false);
@@ -55,6 +59,7 @@ export const Signup = () => {
       }
     } else {
       // notification -- Please enter all fields.
+      toastNotifyError("Please enter all fields.");
     }
   };
 
@@ -84,6 +89,19 @@ export const Signup = () => {
               placeholder="Enter email..."
               onChange={(e) => {
                 setEmail(e.target.value);
+              }}
+            />
+          </div>
+
+          <div className="secret-key-input">
+            <label htmlFor="secret-key">Secret key</label> <br />
+            <input
+              type="text"
+              name="secretkey"
+              id="secret-key"
+              placeholder="Enter secret key..."
+              onChange={(e) => {
+                setSecretKey(e.target.value);
               }}
             />
           </div>
@@ -126,11 +144,11 @@ export const Signup = () => {
 
         <div>
           <p>
-            Already have account ? <Link to="/user/login">Login</Link>
+            Login as Admin. <Link to="/admin/login">admin-Login</Link>
           </p>
 
           <p>
-            If you are admin, <Link to="/admin/login">admin-login</Link>
+            Login as user. <Link to="/user/login">login</Link>
           </p>
         </div>
       </div>

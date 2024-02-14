@@ -4,6 +4,7 @@ import useRazorpay from "react-razorpay";
 import { toastNotifyError, toastNotifySuccess } from "../utils/toast-notify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "./Button";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
@@ -123,12 +124,19 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
         </div>
 
         <div className="cart-btns">
-          <button id="remove-from-cart" onClick={removeFromCart}>
-            Remove from cart
-          </button>
-          <button id="buy-product" onClick={buyProduct}>
-            Buy
-          </button>
+          <Button
+            className={"remove-from-cart"}
+            functionOnClick={removeFromCart}
+            id={"remove-from-cart"}
+            content={"Remove from cart"}
+          />
+
+          <Button
+            className={"buy-product"}
+            id={"buy-product"}
+            functionOnClick={buyProduct}
+            content={"Buy"}
+          />
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import axios from "axios";
 import { toastNotifyError, toastNotifySuccess } from "../utils/toast-notify";
 import { Shimmer } from "./Shimmer";
 import { Header } from "./Header";
+import { Button } from "./Button";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
@@ -75,9 +76,12 @@ export const Product = () => {
         </div>
 
         <div>
-          <button className="add-to-cart" onClick={addToCart}>
-            Add to cart
-          </button>
+          <Button
+            className={"add-to-cart"}
+            functionOnClick={addToCart}
+            id={"add-to-cart"}
+            content={"Add to Cart"}
+          />
         </div>
       </div>
     </div>

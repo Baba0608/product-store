@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const Header = () => {
+export const AdminHeader = () => {
   return (
     <div className="header">
       <div className="header-title">
@@ -10,16 +10,13 @@ export const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
-            <Link to="/user/home">Home</Link>
+            <Link to="/admin/home">Home</Link>
           </li>
           <li>
-            <Link to="/user/Orders">My Orders</Link>
+            <Link to="/admin/admins-list">Admins</Link>
           </li>
           <li>
-            <Link to="/user/cart">Cart</Link>
-          </li>
-          <li>
-            <Link to="/user/login">Logout</Link>
+            <Link to="/admin/login">Logout</Link>
           </li>
         </ul>
       </div>

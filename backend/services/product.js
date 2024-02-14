@@ -22,7 +22,8 @@ const updateProductDetails = (
   cost,
   brand,
   count,
-  description
+  description,
+  imageURL
 ) => {
   return Product.updateOne(
     { _id: productId },
@@ -33,6 +34,7 @@ const updateProductDetails = (
       count: count,
       brand: brand,
       description: description,
+      imageURL: imageURL,
     }
   );
 };
@@ -45,8 +47,13 @@ const getSingleProduct = (productId) => {
   return Product.findById({ _id: productId });
 };
 
+const decrement = (productId, quantity, count) => {
+  return Product.updateOne({ _id: productId }, { count: count - quantity });
+};
+
 exports.addProduct = addProduct;
 exports.getAllProducts = getAllProducts;
 exports.updateProductDetails = updateProductDetails;
 exports.deleteProduct = deleteProduct;
 exports.getSingleProduct = getSingleProduct;
+exports.decrement = decrement;

@@ -1,7 +1,7 @@
 const Razorpay = require("razorpay");
 
 const OrderServices = require("../services/order");
-const Order = require("../models/order");
+const ProductServices = require("../services/product");
 
 const createOrder = async (req, res, next) => {
   try {
@@ -49,13 +49,27 @@ const createOrder = async (req, res, next) => {
 
 const updatePaymentStatus = async (req, res, next) => {
   try {
-    const { orderId, paymentId, amount } = req.body;
+    const { orderId, paymentId, amount, productId, quantity, count } = req.body;
 
-    const result = await OrderServices.updatePaymentStatus(
-      orderId,
-      paymentId,
-      amount
-    );
+    // const result = await OrderServices.updatePaymentStatus(
+    //   orderId,
+    //   paymentId,
+    //   amount
+    // );
+
+    const payment = async () => {
+      return await OrderServices.updatePaymentStatus(
+        orderId,
+        paymentId,
+        amount
+      );
+    };
+
+    const decrementProduct = async () => {
+      return await ProductServices.decrement(productId, quantity, count);
+    };
+
+    const result = Promise.all([payment(), decrementProduct()]);
 
     return res.status(200).json({
       success: true,

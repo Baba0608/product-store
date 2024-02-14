@@ -17,7 +17,7 @@ router.post(
 
 router.get("/all-products", productControllers.getAllProducts);
 
-router.patch(
+router.put(
   "/update-details/:productId",
   adminAuthentication,
   productControllers.updateProductDetails
@@ -30,5 +30,12 @@ router.delete(
 );
 
 router.get("/:productId", productControllers.getSingleProduct);
+
+router.post(
+  "/upload-image",
+  upload.single("image"),
+  adminAuthentication,
+  productControllers.uploadImage
+);
 
 module.exports = router;

@@ -12,4 +12,8 @@ const createAdmin = (userName, email, password) => {
   });
 };
 
-module.exports = { findAdmin, createAdmin };
+const getAdminList = () => {
+  return Admin.find();
+};
+
+module.exports = { findAdmin, createAdmin, getAdminList };

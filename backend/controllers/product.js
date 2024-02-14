@@ -47,7 +47,7 @@ const updateProductDetails = async (req, res, next) => {
   try {
     const productId = req.params.productId;
 
-    const { product, cost, brand, count, description } = req.body;
+    const { product, cost, brand, count, description, imageURL } = req.body;
 
     const result = await ProductServices.updateProductDetails(
       productId,
@@ -55,7 +55,8 @@ const updateProductDetails = async (req, res, next) => {
       cost,
       brand,
       count,
-      description
+      description,
+      imageURL
     );
 
     return res
@@ -100,8 +101,30 @@ const getSingleProduct = async (req, res, next) => {
   }
 };
 
-exports.addProduct = addProduct;
-exports.getAllProducts = getAllProducts;
-exports.updateProductDetails = updateProductDetails;
-exports.deleteProduct = deleteProduct;
-exports.getSingleProduct = getSingleProduct;
+const uploadImage = async (req, res, next) => {
+  try {
+    const file = req.file;
+    const fileName = file.originalname;
+    const fileData = file.buffer;
+
+    const imageURL = await uploadToS3(fileName, fileData);
+
+    return res
+      .status(200)
+      .json({ success: true, message: "Image uploaded.", imageURL });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .json({ success: false, message: "Something went wrong." });
+  }
+};
+
+module.exports = {
+  uploadImage,
+  addProduct,
+  getAllProducts,
+  updateProductDetails,
+  deleteProduct,
+  getSingleProduct,
+};

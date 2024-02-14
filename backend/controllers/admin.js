@@ -81,4 +81,16 @@ const adminLogin = async (req, res, next) => {
   }
 };
 
-module.exports = { adminLogin, adminSignup };
+const getAdminList = async (req, res, next) => {
+  try {
+    const admins = await AdminServices.getAdminList();
+    return res.status(200).json({ success: true, admins });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .json({ success: true, message: " Something went wrong." });
+  }
+};
+
+module.exports = { adminLogin, adminSignup, getAdminList };

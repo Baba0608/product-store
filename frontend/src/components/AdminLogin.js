@@ -89,7 +89,7 @@ export const AdminLogin = () => {
           <div className="btn">
             <Button
               loading={loading}
-              id={"submit-btn"}
+              className={"submit-btn"}
               functionOnClick={submitFormData}
               content={"Login"}
             />

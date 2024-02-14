@@ -13,7 +13,10 @@ import { Error } from "./src/components/Error";
 import { Product } from "./src/components/Product";
 import { AdminLogin } from "./src/components/AdminLogin";
 import { AdminHome } from "./src/components/AdminHome";
-import { AdminSignup } from "./src/components/adminSignup";
+import { AdminSignup } from "./src/components/AdminSignup";
+import { AdminAddProduct } from "./src/components/AdminAddProduct";
+import { AdminUpdateProduct } from "./src/components/AdminUpdateProduct";
+import { AdminList } from "./src/components/AdminList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -66,6 +69,18 @@ const appRouter = createBrowserRouter([
       {
         path: "/admin/home",
         element: <AdminHome />,
+      },
+      {
+        path: "/admin/add-product",
+        element: <AdminAddProduct />,
+      },
+      {
+        path: "/admin/update-product/:productId",
+        element: <AdminUpdateProduct />,
+      },
+      {
+        path: "/admin/admins-list",
+        element: <AdminList />,
       },
     ],
     errorElement: <Error />,

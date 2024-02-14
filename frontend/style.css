@@ -53,7 +53,7 @@ body p{
 }
 
 
-#submit-btn{
+.submit-btn , .add-product-btn{
     padding: 5px 15px;
     border-radius: 5px;
     border: none;
@@ -62,7 +62,7 @@ body p{
     margin-bottom: 10px;
 }
 
-#submit-btn:hover , .button-loading:hover{
+.submit-btn:hover , .add-product-btn:hover, .button-loading:hover{
     background-color: rgb(238, 154, 51);
     cursor: pointer;
     transition: all ease-in-out 300ms;
@@ -171,7 +171,7 @@ body p{
     justify-content: space-between;
 }
 
-.add-to-cart{
+.add-to-cart , .update-product{
     padding: 5px 20px;
     background-color: rgb(50, 139, 223);
     border: none;
@@ -179,14 +179,14 @@ body p{
     width: 48%;
 }
 
-.add-to-cart:hover{
+.add-to-cart:hover , .update-product:hover{
     background-color: rgb(83, 83, 205);
     cursor: pointer;
     transition: all ease-in-out 300ms;
     color: white;
 }
 
-.view-product{
+.view-product , .delete-product{
     width: 48%;
     padding: 5px 20px;
     background-color: rgb(86, 178, 86);
@@ -201,6 +201,16 @@ body p{
     transition: all ease-in-out 300ms;
 }
 
+.delete-product{
+    background-color: rgb(222, 55, 55);
+}
+
+.delete-product:hover{
+    background-color: rgb(139, 13, 13);
+    color: white;
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+}
 /* ------------------------------------------ */
 
 /* Cart-card */
@@ -239,29 +249,29 @@ body p{
     width: 78%;
 }
 
-#remove-from-cart , #buy-product{
+.remove-from-cart , .buy-product{
     padding: 5px 20px;
     margin-right: 20px;
     border: none;
     border-radius: 5px;
 }
 
-#remove-from-cart{
+.remove-from-cart{
     background-color: rgb(226, 85, 85);
     
 }
 
-#remove-from-cart:hover{
+.remove-from-cart:hover{
     transition: all ease-in-out 250ms;
     background-color: rgb(152, 35, 35);
     color: rgb(220, 218, 218);
 }
 
-#buy-product{
+.buy-product{
     background-color: rgb(102, 214, 102);
 }
 
-#buy-product:hover{
+.buy-product:hover{
     transition: all ease-in-out 250ms;
     background-color: rgb(29, 142, 29);
     color: rgb(220, 218, 218);
@@ -330,14 +340,14 @@ body p{
     justify-content: center;
 }
 
-.orders-table th{
+th{
     min-width: 100px;
     background-color: rgb(37, 151, 146);
     padding: 5px 10px;
     text-align: center;
 }
 
-.orders-table td{
+td{
     min-width: 100px;
     background-color: cadetblue;
     padding: 5px 15px;
@@ -367,4 +377,64 @@ td {
 
 .title h2{
     text-align: center;
+}
+
+
+/* ----------------------------------------- */
+
+/* Admin Add product */
+
+.add-product-btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.add-product{
+    font-size: 20px;
+    background-color: rgb(171, 68, 239);
+    margin: 20px 0px;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+}
+
+.add-product:hover{
+    background-color: rgb(122, 29, 185);
+    color: white;
+    transition: all ease-in-out 300ms;
+    cursor: pointer;
+}
+
+.search-product-container{
+    display: flex;
+    justify-content: center;
+}
+
+.search-product-container input{
+    border-radius: 5px;
+    border: none;
+    padding: 3px 5px;
+}
+
+/* --------------------------------------- */
+
+/* Add product input */
+
+.add-product-input-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.add-product-input-container textarea{
+    margin-top: 5px;
+    width: 100%;
+    resize:none;
+    
+}
+
+.admins-list{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }

@@ -2,14 +2,18 @@ import { ButtonLoading } from "./ButtonLoading";
 
 export const Button = ({
   loading,
-  id,
   content,
   functionOnClick,
   className,
+  disabled,
 }) => {
   if (!loading) {
     return (
-      <button id={id} className={className} onClick={functionOnClick}>
+      <button
+        className={className}
+        onClick={functionOnClick}
+        disabled={disabled}
+      >
         {content}
       </button>
     );

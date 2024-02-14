@@ -6,7 +6,7 @@ import { Button } from "./Button";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
-export const Card = ({ resObj }) => {
+export const Card = ({ resObj, isAdmin, removeProduct }) => {
   const addToCart = async () => {
     try {
       await axios.post(
@@ -24,9 +24,30 @@ export const Card = ({ resObj }) => {
     }
   };
 
+  const deleteProduct = async () => {
+    try {
+      await axios.delete(
+        `${BACKEND_API}/product/delete-product/${resObj._id}`,
+        {
+          headers: { authorization: localStorage.getItem("store-token") },
+        }
+      );
+      toastNotifySuccess("Product Deleted.");
+      removeProduct(resObj);
+    } catch (err) {
+      console.log(err);
+      toastNotifyError("Something went wrong.");
+    }
+  };
+
   let navigate = useNavigate();
   const routeChange = () => {
     let path = `/user/product/${resObj._id}`;
+    navigate(path);
+  };
+
+  const updateRoute = () => {
+    let path = `/admin/update-product/${resObj._id}`;
     navigate(path);
   };
   return (
@@ -44,17 +65,15 @@ export const Card = ({ resObj }) => {
 
       <div className="cart-btn">
         <Button
-          className={"add-to-cart"}
-          id={"add-to-cart"}
-          functionOnClick={addToCart}
-          content={"Add to Cart"}
+          className={isAdmin ? "update-product" : "add-to-cart"}
+          functionOnClick={isAdmin ? updateRoute : addToCart}
+          content={isAdmin ? "Update Product" : "Add to Cart"}
         />
 
         <Button
-          className={"view-product"}
-          functionOnClick={routeChange}
-          id={"view-product"}
-          content={"View"}
+          className={isAdmin ? "delete-product" : "view-product"}
+          functionOnClick={isAdmin ? deleteProduct : routeChange}
+          content={isAdmin ? "Delete Product" : "View"}
         />
       </div>
     </div>

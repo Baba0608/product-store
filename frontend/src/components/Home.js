@@ -32,7 +32,7 @@ export const Home = () => {
 
       <div className="products-container">
         {filteredResList.map((res) => {
-          return <Card key={res._id} resObj={res} />;
+          return <Card key={res._id} resObj={res} isAdmin={false} />;
         })}
       </div>
     </div>

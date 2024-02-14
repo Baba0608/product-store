@@ -18,13 +18,22 @@ export const Cart = () => {
     setCartList(cartRemaining);
   };
 
+  const removeNull = (data) => {
+    const cartRemaining = data.products.cart.filter(
+      (product) => product.product != null
+    );
+
+    return cartRemaining;
+  };
+
   const getCartList = async () => {
     try {
       const { data } = await axios.get(`${BACKEND_API}/cart/get-products`, {
         headers: { authorization: localStorage.getItem("store-token") },
       });
 
-      setCartList(data.products.cart);
+      const cartRemaining = removeNull(data);
+      setCartList(cartRemaining);
     } catch (err) {
       console.log(err);
     }
@@ -33,6 +42,10 @@ export const Cart = () => {
   useEffect(() => {
     getCartList();
   }, []);
+
+  if (!cartList) {
+    return;
+  }
 
   return (
     <div>

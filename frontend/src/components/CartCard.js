@@ -11,7 +11,7 @@ const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 export const CartCard = ({ resObj, deleteFromCart }) => {
   const [Razorpay] = useRazorpay();
   const [quantity, setQuantity] = useState(+resObj.quantity);
-
+  console.log(resObj);
   let navigate = useNavigate();
   const routeChange = () => {
     let path = "/user/home";
@@ -61,13 +61,15 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
               orderId: options.order_id,
               paymentId: response.razorpay_payment_id,
               amount: options.amount / 100,
+              productId: resObj.product._id,
+              quantity: quantity,
+              count: resObj.product.count,
             },
             {
               headers: { authorization: localStorage.getItem("store-token") },
             }
           );
 
-          console.log(resObj.product._id);
           removeFromCart("payment");
           toastNotifySuccess(
             "Payment Successfull. Your product will be delivered when I own the company."
@@ -88,12 +90,13 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
       console.log(err);
     }
   };
+
   return (
     <div className="cart-card">
       <div className="cart-card-image">
         <img src={resObj.product.imageURL} />
       </div>
-
+      {console.log(resObj)}
       <div className="cart-card-details">
         <p>Name : {resObj.product.productName}</p>
         <p>Brand : {resObj.product.brand}</p>
@@ -111,7 +114,9 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
           >
             -
           </button>
-          <div className="quantity-value">{quantity}</div>
+          <div className="quantity-value">
+            {resObj.product.count === 0 ? 0 : quantity}
+          </div>
           <button
             className="increase"
             disabled={quantity === resObj.product.count}
@@ -127,15 +132,14 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
           <Button
             className={"remove-from-cart"}
             functionOnClick={removeFromCart}
-            id={"remove-from-cart"}
             content={"Remove from cart"}
           />
 
           <Button
             className={"buy-product"}
-            id={"buy-product"}
             functionOnClick={buyProduct}
             content={"Buy"}
+            disabled={resObj.product.count === 0 || quantity === 0}
           />
         </div>
       </div>

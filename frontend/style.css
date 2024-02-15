@@ -438,3 +438,8 @@ td {
     display: flex;
     justify-content: center;
 }
+
+
+.search{
+    margin-top: 20px;
+}

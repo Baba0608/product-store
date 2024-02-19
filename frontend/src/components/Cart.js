@@ -51,7 +51,7 @@ export const Cart = () => {
     <div>
       <Header />
 
-      <div className="cart-container">
+      <div className="cart-container mx-4 mt-20 pt-4">
         {cartList.map((product) => {
           return (
             <CartCard

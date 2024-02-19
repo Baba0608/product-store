@@ -49,58 +49,74 @@ export const Login = () => {
     }
   };
   return (
-    <div className="login-container">
-      <div className="title">
-        <h2>Login</h2>
-      </div>
-      <div className="login-input">
-        <form>
-          <div className="email-input">
-            <label htmlFor="email">Email</label> <br />
-            <input
-              type="text"
-              name="email"
-              id="email"
-              placeholder="Enter email..."
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
+    <div className="flex justify-center items-center min-h-[100vh] bg-blue-200">
+      <div className="login-container bg-orange-200 p-5 w-[90%] rounded-lg shadow-lg sm:w-[600px]">
+        <div className="title text-center font-bold text-[25px]">
+          <h2>Login</h2>
+        </div>
+        <div className="login-input">
+          <form>
+            <div className="email-input text-lg">
+              <label htmlFor="email">Email</label> <br />
+              <input
+                className="w-[100%] mt-1 mb-2 p-1 rounded-md"
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Enter email..."
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="password-input text-lg">
+              <label htmlFor="password">Password</label> <br />
+              <input
+                className="w-[100%] p-1 rounded-md"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter password..."
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div>
+
+            <div className="btn flex justify-center mt-1">
+              <Button
+                loading={loading}
+                className={"submit-btn"}
+                functionOnClick={submitFormData}
+                content={"Login"}
+              />
+            </div>
+          </form>
+
+          <div className="text-lg">
+            <p className="mt-2">
+              Don't have an account ?{" "}
+              <Link
+                className="text-blue-400 hover:text-blue-600 hover:underline"
+                to="/user/signup"
+              >
+                Signup
+              </Link>
+            </p>
+
+            <p className="mt-2">
+              If you are admin,{" "}
+              <Link
+                className="text-blue-400 hover:text-blue-600 hover:underline"
+                to="/admin/login"
+              >
+                admin-login
+              </Link>
+            </p>
           </div>
-
-          <div className="password-input">
-            <label htmlFor="password">Password</label> <br />
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter password..."
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-
-          <div className="btn">
-            <Button
-              loading={loading}
-              className={"submit-btn"}
-              functionOnClick={submitFormData}
-              content={"Login"}
-            />
-          </div>
-        </form>
-
-        <div>
-          <p>
-            Don't have an account ? <Link to="/user/signup">Signup</Link>
-          </p>
-
-          <p>
-            If you are admin, <Link to="/admin/login">admin-login</Link>
-          </p>
         </div>
       </div>
     </div>

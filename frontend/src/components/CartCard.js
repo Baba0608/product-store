@@ -92,21 +92,26 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
   };
 
   return (
-    <div className="cart-card">
-      <div className="cart-card-image">
-        <img src={resObj.product.imageURL} />
+    <div className="cart-card bg-gray-200 m-8 p-4 sm:flex sm:flex-row flex flex-col rounded-lg">
+      <div className="flex w-[100%] sm:w-[250px] justify-center">
+        <div className="cart-card-image w-[250px] h-[250px] mr-4 mb-4">
+          <img
+            className="w-[100%] h-[100%] rounded-lg"
+            src={resObj.product.imageURL}
+          />
+        </div>
       </div>
-      {console.log(resObj)}
-      <div className="cart-card-details">
+
+      <div className="cart-card-details ">
         <p>Name : {resObj.product.productName}</p>
         <p>Brand : {resObj.product.brand}</p>
-        <p>Available: {resObj.product.available ? "True" : "False"}</p>
+        <p>Available: {resObj.product.count != 0 ? "True" : "False"}</p>
         <p>No.of products available : {resObj.product.count}</p>
         <p>Cost : {resObj.product.cost} Rs/-</p>
         <p>Quantity</p>
-        <div className="quantity">
+        <div className="quantity flex my-2">
           <button
-            className="decrease"
+            className="decrease w-8 bg-orange-300 hover:bg-orange-400 text-lg flex justify-center"
             disabled={quantity === 0}
             onClick={() => {
               setQuantity(quantity - 1);
@@ -114,11 +119,11 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
           >
             -
           </button>
-          <div className="quantity-value">
+          <div className="quantity-value w-12 flex justify-center bg-white">
             {resObj.product.count === 0 ? 0 : quantity}
           </div>
           <button
-            className="increase"
+            className="increase w-8 bg-orange-300 hover:bg-orange-400 text-lg flex justify-center"
             disabled={quantity === resObj.product.count}
             onClick={() => {
               setQuantity(quantity + 1);
@@ -128,7 +133,7 @@ export const CartCard = ({ resObj, deleteFromCart }) => {
           </button>
         </div>
 
-        <div className="cart-btns">
+        <div className="md:flex md:justify-between md:w-[350px]">
           <Button
             className={"remove-from-cart"}
             functionOnClick={removeFromCart}

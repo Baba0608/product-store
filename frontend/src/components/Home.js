@@ -28,11 +28,12 @@ export const Home = () => {
   }
 
   return (
-    <div>
+    <div className="bg-blue-200 min-h-[100vh]">
       <Header />
 
-      <div className="search-product-container search">
+      <div className="search-product-container search m-4 mt-20 pt-4 flex justify-center">
         <input
+          className="border-2 border-gray-400 rounded-md w-[90%] sm:w-[400px] p-1"
           type="text"
           name="search-product"
           placeholder="search products..."
@@ -51,7 +52,7 @@ export const Home = () => {
         />
       </div>
 
-      <div className="products-container">
+      <div className="mx-5 flex flex-wrap justify-center">
         {filteredResList.map((res) => {
           return <Card key={res._id} resObj={res} isAdmin={false} />;
         })}

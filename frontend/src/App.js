@@ -4,19 +4,19 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { Login } from "./src/components/Login";
-import { Signup } from "./src/components/Signup";
-import { Home } from "./src/components/Home";
-import { Orders } from "./src/components/Orders";
-import { Cart } from "./src/components/Cart";
-import { Error } from "./src/components/Error";
-import { Product } from "./src/components/Product";
-import { AdminLogin } from "./src/components/AdminLogin";
-import { AdminHome } from "./src/components/AdminHome";
-import { AdminSignup } from "./src/components/AdminSignup";
-import { AdminAddProduct } from "./src/components/AdminAddProduct";
-import { AdminUpdateProduct } from "./src/components/AdminUpdateProduct";
-import { AdminList } from "./src/components/AdminList";
+import { Login } from "./components/Login";
+import { Signup } from "./components/Signup";
+import { Home } from "./components/Home";
+import { Orders } from "./components/Orders";
+import { Cart } from "./components/Cart";
+import { Error } from "./components/Error";
+import { Product } from "./components/Product";
+import { AdminLogin } from "./components/AdminLogin";
+import { AdminHome } from "./components/AdminHome";
+import { AdminSignup } from "./components/AdminSignup";
+import { AdminAddProduct } from "./components/AdminAddProduct";
+import { AdminUpdateProduct } from "./components/AdminUpdateProduct";
+import { AdminList } from "./components/AdminList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

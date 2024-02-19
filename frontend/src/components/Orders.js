@@ -29,26 +29,34 @@ export const Orders = () => {
     <div>
       <Header />
 
-      <div className="orders-table">
-        <table>
+      <div className="orders-table m-4 flex justify-center w-[95%] mt-20 pt-4">
+        <table className="border-2 border-collapse border-gray-700 text-sm w-[100%] sm:w-[600px]">
           <tr>
-            <th>Order id</th>
-            <th>Product name</th>
-            <th>cost</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-            <th>Payment status</th>
+            <th className="border-2 min-w-5 px-4 py-1 bg-green-500 border-gray-700">
+              Product name
+            </th>
+
+            <th className="border-2 min-w-5 px-4 py-1 bg-green-500 border-gray-700">
+              Amount
+            </th>
+
+            <th className="border-2 min-w-5 px-4 py-1 bg-green-500 border-gray-700">
+              Payment status
+            </th>
           </tr>
 
           {myOrders.map((order) => {
             return (
               <tr key={order._id}>
-                <td>{order.orderId}</td>
-                <td>{order.products[0].productName}</td>
-                <td>{order.products[0].cost}</td>
-                <td>{order.products[0].quantity}</td>
-                <td>{order.amount ? order.amount : "--"}</td>
-                <td>
+                <td className="border-2 border-gray-700 min-w-5 px-4 py-1 bg-green-300 text-center">
+                  {order.products[0].productName}
+                </td>
+
+                <td className="border-2 border-gray-700 min-w-5 px-4 py-1 bg-green-300 text-center">
+                  {order.products[0].cost}
+                </td>
+
+                <td className="border-2 border-gray-700 min-w-5 px-4 py-1 bg-green-300 text-center">
                   {order.paymentStatus != "PENDING"
                     ? order.paymentStatus
                     : "FAILED"}

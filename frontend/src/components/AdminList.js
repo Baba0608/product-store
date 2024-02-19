@@ -34,18 +34,26 @@ export const AdminList = () => {
     <div>
       <AdminHeader />
 
-      <div className="admins-list">
-        <table>
+      <div className="admins-list flex justify-center w-[95%] mt-20 pt-4">
+        <table className="border-2 border-collapse border-gray-700 text-sm w-[95%] sm:w-[600px]">
           <tr>
-            <th>Admin</th>
-            <th>mail</th>
+            <th className="border-2 min-w-5 px-4 py-1 bg-green-500 border-gray-700">
+              Admin
+            </th>
+            <th className="border-2 min-w-5 px-4 py-1 bg-green-500 border-gray-700">
+              mail
+            </th>
           </tr>
 
           {adminList.map((admin) => {
             return (
               <tr key={admin._id}>
-                <td>{admin.username}</td>
-                <td>{admin.email}</td>
+                <td className="border-2 border-gray-700 min-w-5 px-4 py-1 bg-green-300 text-center">
+                  {admin.username}
+                </td>
+                <td className="border-2 border-gray-700 min-w-5 px-4 py-1 bg-green-300 text-center">
+                  {admin.email}
+                </td>
               </tr>
             );
           })}

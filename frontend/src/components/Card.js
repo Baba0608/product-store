@@ -51,19 +51,19 @@ export const Card = ({ resObj, isAdmin, removeProduct }) => {
     navigate(path);
   };
   return (
-    <div className="card">
-      <div className="product-image">
-        <img src={resObj.imageURL} />
+    <div className="card w-[270px] m-4 p-4 bg-gray-200 rounded-lg text-lg border-[1px] hover:border-[1px] hover:border-gray-500 duration-300">
+      <div className="product-image h-[250px] mb-2 overflow-hidden rounded-lg">
+        <img className="h-[100%] w-[100%] rounded-lg" src={resObj.imageURL} />
       </div>
 
       <div className="product-details">
         <p>Name : {resObj.productName}</p>
         <p>Cost : {resObj.cost} Rs/-</p>
         <p>Brand : {resObj.brand}</p>
-        <p>Availabe : {resObj.available ? "True" : "False"}</p>
+        <p>Availabe : {resObj.count != 0 ? "True" : "False"}</p>
       </div>
 
-      <div className="cart-btn">
+      <div className="cart-btn flex justify-between">
         <Button
           className={isAdmin ? "update-product" : "add-to-cart"}
           functionOnClick={isAdmin ? updateRoute : addToCart}

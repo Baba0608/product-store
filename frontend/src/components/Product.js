@@ -48,9 +48,12 @@ export const Product = () => {
   return (
     <div>
       <Header />
-      <div className="single-product">
-        <div className="single-product-image">
-          <img src={product.imageURL} />
+      <div className="single-product m-4 mt-20 pt-4 text-lg">
+        <div className="single-product-image flex justify-center mb-4">
+          <img
+            className="w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] rounded-lg"
+            src={product.imageURL}
+          />
         </div>
 
         <div>
@@ -61,7 +64,7 @@ export const Product = () => {
             <span>Brand</span> : {product.brand}
           </p>
           <p>
-            <span>Available</span> : {product.available ? "True" : "False"}
+            <span>Available</span> : {product.count != 0 ? "True" : "False"}
           </p>
           <p>
             <span>No.of products available</span> : {product.count}
@@ -69,7 +72,7 @@ export const Product = () => {
           <p>
             <span>Cost</span> : {product.cost} Rs/-
           </p>
-          <p>
+          <p className="font-bold">
             <span>Description</span>
           </p>
           <p>{product.description}</p>
@@ -79,7 +82,6 @@ export const Product = () => {
           <Button
             className={"add-to-cart"}
             functionOnClick={addToCart}
-            id={"add-to-cart"}
             content={"Add to Cart"}
           />
         </div>

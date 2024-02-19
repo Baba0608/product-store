@@ -44,7 +44,7 @@ export const AdminHome = () => {
     <div>
       <AdminHeader />
 
-      <div className="add-product-btn-container">
+      <div className="add-product-btn-container mt-20 pt-4 flex justify-center m-4">
         <Button
           className={"add-product"}
           functionOnClick={routeChange}
@@ -52,8 +52,9 @@ export const AdminHome = () => {
         />
       </div>
 
-      <div className="search-product-container">
+      <div className="search-product-container flex justify-center mb-2">
         <input
+          className="border-2 border-gray-400 rounded-md w-[90%] sm:w-[400px] p-1"
           type="text"
           name="search-product"
           placeholder="search products..."
@@ -72,7 +73,7 @@ export const AdminHome = () => {
         />
       </div>
 
-      <div className="products-container">
+      <div className="products-container flex flex-wrap justify-center">
         {filteredResList.map((res) => {
           return (
             <Card

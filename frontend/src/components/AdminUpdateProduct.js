@@ -87,98 +87,108 @@ export const AdminUpdateProduct = () => {
     <div>
       <AdminHeader />
 
-      <div className="add-product-input-container">
-        <form>
-          <div className="product-name-input">
-            <label htmlFor="product-name">Product Name</label> <br />
-            <input
-              type="text"
-              id="product-name"
-              value={product}
-              name="product-name"
-              placeholder="enter product name..."
-              onChange={(e) => {
-                setProduct(e.target.value);
-              }}
-            />
-          </div>
+      <div className="flex justify-center items-center min-h-[100vh] bg-blue-200">
+        <div className="add-product-input-container mt-20 pt-4 bg-orange-200 p-5 w-[90%] rounded-lg shadow-lg sm:w-[600px]">
+          <form>
+            <div className="product-name-input text-lg">
+              <label htmlFor="product-name">Product Name</label> <br />
+              <input
+                className="w-[100%] mt-1 mb-2 p-1 rounded-md"
+                type="text"
+                id="product-name"
+                value={product}
+                name="product-name"
+                placeholder="enter product name..."
+                onChange={(e) => {
+                  setProduct(e.target.value);
+                }}
+              />
+            </div>
 
-          <div className="cost-input">
-            <label htmlFor="cost">Cost</label> <br />
-            <input
-              type="text"
-              value={cost}
-              id="cost"
-              name="cost"
-              placeholder="enter cost..."
-              onChange={(e) => {
-                setCost(e.target.value);
-              }}
-            />
-          </div>
+            <div className="cost-input text-lg">
+              <label htmlFor="cost">Cost</label> <br />
+              <input
+                className="w-[100%] mt-1 mb-2 p-1 rounded-md"
+                type="text"
+                value={cost}
+                id="cost"
+                name="cost"
+                placeholder="enter cost..."
+                onChange={(e) => {
+                  setCost(e.target.value);
+                }}
+              />
+            </div>
 
-          <div className="brand-input">
-            <label htmlFor="brand">Brand</label> <br />
-            <input
-              type="text"
-              value={brand}
-              id="brand"
-              name="brand"
-              placeholder="enter brand name..."
-              onChange={(e) => {
-                setBrand(e.target.value);
-              }}
-            />
-          </div>
+            <div className="brand-input text-lg">
+              <label htmlFor="brand">Brand</label> <br />
+              <input
+                className="w-[100%] mt-1 mb-2 p-1 rounded-md"
+                type="text"
+                value={brand}
+                id="brand"
+                name="brand"
+                placeholder="enter brand name..."
+                onChange={(e) => {
+                  setBrand(e.target.value);
+                }}
+              />
+            </div>
 
-          <div className="count-input">
-            <label htmlFor="count">No.of Products</label> <br />
-            <input
-              type="text"
-              value={count}
-              id="count"
-              name="count"
-              placeholder="enter no.of products..."
-              onChange={(e) => {
-                setCount(e.target.value);
-              }}
-            />
-          </div>
+            <div className="count-input text-lg">
+              <label htmlFor="count">No.of Products</label> <br />
+              <input
+                className="w-[100%] mt-1 mb-2 p-1 rounded-md"
+                type="text"
+                value={count}
+                id="count"
+                name="count"
+                placeholder="enter no.of products..."
+                onChange={(e) => {
+                  setCount(e.target.value);
+                }}
+              />
+            </div>
 
-          <div className="description-input">
-            <label htmlFor="description">Description</label> <br />
-            <textarea
-              rows={4}
-              id="description"
-              value={description}
-              name="description"
-              placeholder="enter description..."
-              onChange={(e) => {
-                setDescription(e.target.value);
-              }}
-            />
-          </div>
+            <div className="description-input text-lg">
+              <label htmlFor="description">Description</label> <br />
+              <textarea
+                className="w-[100%] mt-1 mb-2 p-1 rounded-md resize-none"
+                rows={4}
+                id="description"
+                value={description}
+                name="description"
+                placeholder="enter description..."
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
+            </div>
 
-          <div className="image-input">
-            <input
-              type="file"
-              ref={ref}
-              name="file-input"
-              onChange={(e) => {
-                setImage(e.target);
-              }}
-            />
-          </div>
+            <div className="image-input text-lg">
+              <label htmlFor="image">Image</label> <br />
+              <input
+                className="w-[100%] mt-1 mb-2 p-1"
+                type="file"
+                id="image"
+                ref={ref}
+                name="file-input"
+                onChange={(e) => {
+                  setImage(e.target);
+                }}
+              />
+            </div>
 
-          <div className="btn">
-            <Button
-              loading={loading}
-              className={"add-product-btn"}
-              functionOnClick={uploadFormData}
-              content={"Update Product"}
-            />
-          </div>
-        </form>
+            <div className="btn flex justify-center">
+              <Button
+                loading={loading}
+                className={"add-product-btn"}
+                functionOnClick={uploadFormData}
+                content={"Update Product"}
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
